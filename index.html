@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Mars Data Scraping</title>
+</head>
+
+<body>
+    <br>
+    <div class="container" width: 90%>
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+        <h1 class='text-center'>Missions to Mars</h1>
+        <p class='text-center'><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+        
+        <h2><strong>Latest Mars News</strong></h2>
+        <h4><strong>{{mars_things.news_title}}</strong></h4>
+        <p>{{mars_things.news_p}}</p>
+        <br>
+        <div class='row'>
+            <div class="col-lg-8">
+                <h2><strong>Featured Mars Image</strong></h2>  
+                <img src= {{ mars_things.featured_image_url }} alt="featured_image_url" style="width:720px;height:500px;"/>     
+            </div>
+            <div class="col-lg-4 text-left">
+                <div class="panel panel-default">
+                    <div class="panel-heading h4"><strong>Current Weather on Mars</strong></div>
+                    <div class="panel-body">
+                        {{ mars_things.mars_weather }}
+                    </div>
+                </div>
+                <br>
+                <h2>Mars Facts</h2>
+                <!-- Table -->
+                    {{mars_things.mars_facts_html|safe}}
+                
+            </div>
+        </div>       
+        <br>
+        <h2 class='text-center'><strong> Mars Hemispheres</strong></h2>
+        <hr>
+        <div class="row">
+                <div class="col-lg-6 text-right">
+                    <img src= {{ mars_things.hemisphere_image_urls[0].img_url }} alt="hemi1" class='borderbox' style="width:400px;height:400px;"/>
+                    <p class='h4 text-center'>{{ mars_things.hemisphere_image_urls[0].title }}</p>
+                </div>
+                <div class="col-lg-6 text-left">
+                    <img src= {{ mars_things.hemisphere_image_urls[1].img_url }} alt="hemi2" class='borderbox' style="width:400px;height:400px;"/>
+                    <p class='h4'>{{ mars_things.hemisphere_image_urls[1].title }}</p>
+                </div>
+        </div>        
+        <div class="row">
+                <div class="col-lg-6 text-right">
+                    <img src= {{ mars_things.hemisphere_image_urls[2].img_url }} alt="hemi3" class='borderbox' style="width:400px;height:400px;"/>
+                    <p class='h4 text-center'>{{ mars_things.hemisphere_image_urls[2].title }}</p>
+                </div>
+                <div class="col-lg-6 text-left">
+                    <img src= {{ mars_things.hemisphere_image_urls[3].img_url }} alt="hemi4" class='borderbox' style="width:400px;height:400px;"/>
+                    <p class='h4'>{{ mars_things.hemisphere_image_urls[3].title }}</p>
+                </div>
+        
+        </div> 
+    </div>  
+
+</body>
+
+</html>
